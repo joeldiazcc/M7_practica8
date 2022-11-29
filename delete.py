@@ -1,6 +1,7 @@
 import psycopg2
 
 def delete():
+
     #conexión
     conexion = psycopg2.connect(user='postgres',
                                 password='12345',
