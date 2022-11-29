@@ -1,29 +1,29 @@
 import psycopg2
 
-def delete():
+# Funcio per llegir elements de la taula
+def read():
     #conexión
     conexion = psycopg2.connect(user='postgres',
                                 password='12345',
                                 host='localhost',
                                 port='5432',
                                 database='postgres')
+    # Declarem un cursor per realitzar operacions a la BD
     cursor=conexion.cursor()
 
-    #sentencia sql
-    sqlDel = 'DELETE FROM Series WHERE idSerie=%s'
-
-    idSerie = input("Inserte el id de la serie que quiere eliminar: ")
-
-    dato = (idSerie)
-
-    cursor.execute(sqlDel, dato)
+    #Senténcia sql
+    sqlShow = "SELECT * FROM Series;"
+    # Consulta a la base de dades   
+    cursor.execute(sqlShow)
 
     conexion.commit()
 
-    registros = cursor.rowcount
+    registro = cursor.fetchall()
 
-    print('registro eliminado')
-
+    print(registro)
+    
+    # Acabem conexió
     cursor.close()
     conexion.close()
+
 
