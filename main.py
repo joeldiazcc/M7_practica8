@@ -12,7 +12,8 @@ from update import update
 exit = False
 # -- Input ---
 while exit == False:
-    seleccio = input("Selecciona una opció indicant el número:\n1. Crear element\n2.Llegir elements\n3.Actualitzar taula\n4.Borrar elements\n5.Sortir")
+    seleccio = input("Selecciona una opció indicant el número:\n1. Crear element\n2.Llegir elements\n3.Actualitzar taula\n4.Borrar elements\n5.Sortir\nSelecció: ")
+    # Selecció de que volem fer
     if int(seleccio) == 1:
         insert()
         exit = True
