@@ -1,32 +1,42 @@
 import sys
 
-# import per fer delete
-from delete import delete
-# import per fer insert
-from insert import insert
-# import per read
-from read import read
-# import per update
-from update import update
+from M7_practica8.read import read
+from M7_practica8.delete import delete
+from M7_practica8.insert import insert
+from M7_practica8.update import update
 
-exit = False
-# -- Input ---
-while exit == False:
-    seleccio = input("Selecciona una opció indicant el número:\n1. Crear element\n2.Llegir elements\n3.Actualitzar taula\n4.Borrar elements\n5.Sortir\nSelecció: ")
-    # Selecció de que volem fer
-    if int(seleccio) == 1:
+
+def main():
+
+    print("1 - Insertar série")
+    print("2 - Eliminar série")
+    print("3 - Modificar série")
+    print("4 - Mostrar lista de séries")
+    print("5 - Salir")
+    print("-------------------------------------------")
+    valor = int(input("Que quiere hacer: "))
+
+    if(valor == 1):
         insert()
-        exit = True
-    elif int(seleccio) == 2:
-        read()
-        exit = True
-    elif int(seleccio) == 3:
-        update()
-        exit = True
-    elif int(seleccio) == 4:
+        print("-------------------------------------------")
+        main()
+    elif(valor == 2):
         delete()
-        exit = True
-    elif int(seleccio) == 5:
-        exit = True
+        print("-------------------------------------------")
+        main()
+    elif(valor == 3):
+        update()
+        print("-------------------------------------------")
+        main()
+    elif(valor == 4):
+        read()
+        print("-------------------------------------------")
+        main()
+    elif(valor == 5):
+        sys.exit()
     else:
-        print("Escriu algun numero entre el 1-5.")
+        print("-----------------------------------------------")
+        print("Porfavor inserte un dato numérico entre 1 y 5")
+        main()
+
+main()
